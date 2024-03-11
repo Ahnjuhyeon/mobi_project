@@ -1,45 +1,55 @@
-import { Button } from './Button';
+import { Button } from "./Button";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 export default {
-  title: 'Example/Button',
+  title: "Example/Button",
   component: Button,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
-    layout: 'centered',
+    layout: "centered",
   },
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   // More on argTypes: https://storybook.js.org/docs/api/argtypes
   argTypes: {
-    backgroundColor: { control: 'color' },
+    backgroundColor: { control: "color" },
   },
 };
 
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
-export const Primary = {
+export const MediumButton = {
   args: {
-    primary: true,
-    label: 'Button',
+    size: "mediumCircle",
+    font: "medium",
+    label: "click",
   },
 };
 
-export const Secondary = {
+export const PrimaryMedium = {
   args: {
-    label: 'Button',
+    ...MediumButton,
+    isPrimary: true,
   },
 };
 
-export const Large = {
+export const SecondaryMedium = {
   args: {
-    size: 'large',
-    label: 'Button',
+    ...MediumButton,
+    isPrimary: false,
+  },
+};
+export const PrimarySmall = {
+  args: {
+    isPrimary: true,
+    size: "smallCircle",
+    font: "small",
   },
 };
 
-export const Small = {
+export const SecondarySmall = {
   args: {
-    size: 'small',
-    label: 'Button',
+    isPrimary: false,
+    size: "smallCircle",
+    font: "small",
   },
 };

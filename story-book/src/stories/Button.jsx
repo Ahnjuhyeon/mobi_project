@@ -1,17 +1,16 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import './button.css';
+import React from "react";
+import PropTypes from "prop-types";
+import "./button.css";
 
 /**
  * Primary UI component for user interaction
  */
-export const Button = ({ primary, backgroundColor, size, label, ...props }) => {
-  const mode = primary ? 'storybook-button--primary' : 'storybook-button--secondary';
+export const Button = ({ isPrimary, size, font, label, ...props }) => {
+  const mode = isPrimary ? "primary" : "secondary";
   return (
     <button
       type="button"
-      className={['storybook-button', `storybook-button--${size}`, mode].join(' ')}
-      style={backgroundColor && { backgroundColor }}
+      className={["storybook-button", `${size}`, `${font}`, mode].join(" ")}
       {...props}
     >
       {label}
@@ -21,30 +20,36 @@ export const Button = ({ primary, backgroundColor, size, label, ...props }) => {
 
 Button.propTypes = {
   /**
-   * Is this the principal call to action on the page?
+   * primary = true,  secondary = false
    */
-  primary: PropTypes.bool,
+  isPrimary: PropTypes.bool,
   /**
-   * What background color to use
+   * 색상 종류
    */
-  backgroundColor: PropTypes.string,
+  // backgroundColor: PropTypes.string,
   /**
-   * How large should the button be?
+   * 사이즈 종류
    */
-  size: PropTypes.oneOf(['small', 'medium', 'large']),
+  size: PropTypes.oneOf(["smallCircle", "mediumCircle", "largeCircle"]),
   /**
    * Button contents
    */
-  label: PropTypes.string.isRequired,
+  label: PropTypes.string,
   /**
    * Optional click handler
    */
   onClick: PropTypes.func,
+  /**
+   *폰트?
+   */
+  font: PropTypes.oneOf(["small", "medium", "large"]),
 };
 
 Button.defaultProps = {
-  backgroundColor: null,
-  primary: false,
-  size: 'medium',
+  // backgroundColor: null,
+  isPrimary: true,
+  size: "mediumCircle",
+  font: "medium",
+  label: "click",
   onClick: undefined,
 };
