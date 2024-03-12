@@ -3,12 +3,14 @@ import React from "react";
 import { COROLS } from "../../styles/color";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import PropTypes from "prop-types";
 
 const JHInput = ({ variant, size, font, placeholder, ...inputProps }) => {
+  const mode = variant ? "primary" : "secondary";
   return (
-    <InputWrapper variant={variant}>
+    <InputWrapper variant={mode}>
       <Input
-        variant={variant}
+        variant={mode}
         size={size}
         font={font}
         placeholder={placeholder}
@@ -43,15 +45,6 @@ const variantCSS = {
   `,
 };
 
-const IconCSS = {
-  primary: css`
-    color: ${COROLS.primary.hover};
-  `,
-
-  secondary: css`
-    color: ${COROLS.secondary.hover};
-  `,
-};
 const sizeCSS = {
   smallCircle: css`
     width: 297px;
@@ -119,3 +112,40 @@ const Input = styled.input`
       variant === "secondary" ? COROLS.secondary.hover : COROLS.primary.hover};
   }
 `;
+
+//
+JHInput.propTypes = {
+  /**
+   * primary = true,  secondary = false
+   */
+  variant: PropTypes.bool,
+  /**
+   * 색상 종류
+   */
+  // backgroundColor: PropTypes.string,
+  /**
+   * 사이즈 종류
+   */
+  size: PropTypes.oneOf(["smallCircle", "largeCircle"]),
+  /**
+   * Button contents
+   */
+  label: PropTypes.string,
+  /**
+   * Optional click handler
+   */
+  // onClick: PropTypes.func,
+  /**
+   *폰트?
+   */
+  font: PropTypes.oneOf(["small", "medium", "large"]),
+};
+
+JHInput.defaultProps = {
+  // backgroundColor: null,
+  variant: true,
+  size: "smallCircle",
+  font: "medium",
+  label: "search",
+  // onClick: undefined,
+};
