@@ -1,5 +1,12 @@
 import JHButton from "../components/jhButton/jhButton";
 import JHInput from "../components/jhInput/input";
+import JHModal from "../components/jhModal/jhModal";
+import {
+  faCircleCheck,
+  faCircleXmark,
+} from "@fortawesome/free-solid-svg-icons";
+
+import { COROLS } from "../styles/color";
 import { FONT_SIZE } from "../styles/fontSize";
 
 const MainPage = () => {
@@ -9,6 +16,24 @@ const MainPage = () => {
         check
       </JHButton>
       <JHInput variant="secondary" size="largeCircle" font="medium" />
+
+      <JHModal
+        headingText="알림"
+        contentText="이러저러해서 이래저래 되었습니다."
+        cancleButtonText="취소"
+        confirmButtonText="확인"
+        icon={faCircleCheck}
+        color={COROLS.sucess}
+      />
+
+      <JHModal
+        headingText="경고"
+        contentText="이러저러해서 이래저래 될수 있어요. 삭제할래요?"
+        cancleButtonText="취소"
+        confirmButtonText="삭제"
+        icon={faCircleXmark}
+        color={COROLS.errors}
+      />
     </>
   );
 };
