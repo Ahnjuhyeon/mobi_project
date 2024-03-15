@@ -18,8 +18,8 @@ const MainPage = () => {
       <JHInput variant="secondary" size="largeCircle" font="medium" />
 
       <JHModal
-        headingText="알림"
-        contentText="이러저러해서 이래저래 되었습니다."
+        headingText="Save account"
+        contentText="Are you sure you want to delete your account ? All of your data will be parmanently removed"
         cancleButtonText="취소"
         confirmButtonText="확인"
         icon={faCircleCheck}

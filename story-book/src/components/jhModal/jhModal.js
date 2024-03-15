@@ -1,7 +1,8 @@
-import { css, styled } from "styled-components";
+import { styled } from "styled-components";
 import { COROLS } from "../../styles/color";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
+import { FontAwesomeIcon, faCircleCheck } from "@fortawesome/react-fontawesome";
+import React from "react";
+import PropTypes from "prop-types";
 /**
  * size {'small'|'large'}
  */
@@ -20,7 +21,7 @@ const JHModal = ({
         <FontAwesomeIcon icon={icon} color={color} size="3x" />
       </IconWrapper>
       <ContentContainer>
-        <h1>{headingText}</h1>
+        <h2>{headingText}</h2>
         <span>{contentText}</span>
         <ButtonBox>
           <Button
@@ -43,14 +44,17 @@ const IconWrapper = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
+  padding-top: 1rem;
 `;
 
 const ContentContainer = styled.div`
   display: grid;
-  grid-template-rows: auto 1fr auto;
   align-items: center;
   gap: 0.5rem;
   text-align: center;
+  & > span {
+    padding: 0 3rem;
+  }
 `;
 
 const ButtonBox = styled.div`
@@ -68,7 +72,7 @@ const Button = styled.button`
   border: none;
   outline: none;
 
-  width: 13rem;
+  width: 12rem;
   height: 4rem;
   border-radius: 10px;
 
@@ -86,5 +90,5 @@ const Modal = styled.div`
   height: 28.1rem;
   grid-template-rows: auto 1fr;
   justify-content: center;
-  gap: 3rem;
+  gap: 1rem;
 `;

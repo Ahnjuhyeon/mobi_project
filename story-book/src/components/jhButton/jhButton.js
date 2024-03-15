@@ -95,12 +95,3 @@ JHButton.propTypes = {
    */
   font: PropTypes.oneOf(["small", "medium", "large"]),
 };
-
-JHButton.defaultProps = {
-  // backgroundColor: null,
-  variant: true,
-  size: "mediumCircle",
-  font: "medium",
-  label: "click",
-  onClick: undefined,
-};
